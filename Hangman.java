@@ -21,7 +21,10 @@ public class Hangman {
 
         
         List<Character> playerGuesses = new ArrayList<>();
+        printWordState (word, playerGuesses);
+    }
 
+    private static void printWordState (String word, List<Character> playerGuesses) {
         for (int i = 0; i < word.length(); i++) {
             if (playerGuesses.contains(word.charAt(i))) {
                 System.out.print(word.charAt(i));
