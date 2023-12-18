@@ -21,9 +21,9 @@ public class Hangman {
         System.out.println(word);
 
         List<Character> playerGuesses = new ArrayList<>();
-        printWordState(word, playerGuesses);
 
         while (true) {
+            printWordState(word, playerGuesses);
             getPlayerGuess(keyboard, word, playerGuesses);
             if (printWordState(word, playerGuesses)) {
                 System.out.println("\nYOU WIN");
@@ -33,6 +33,8 @@ public class Hangman {
             if (keyboard.nextLine().equals(word)) {
                 System.out.println("\nYOU WIN");
                 break;
+            } else {
+                System.out.println("Incorrect");
             }
         }
     }
