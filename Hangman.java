@@ -23,22 +23,25 @@ public class Hangman {
         List<Character> playerGuesses = new ArrayList<>();
 
         int wrongCount = 0;
+        while (true) {
+            printHangedMan(wrongCount);
+            
+            printWordState(word, playerGuesses);
+            if (!getPlayerGuess(keyboard, word, playerGuesses)) {
+                wrongCount++;
+            }
 
-        printWordState(word, playerGuesses);
-        if (!getPlayerGuess(keyboard, word, playerGuesses)) {
-            wrongCount++;
-        }
-
-        if (printWordState(word, playerGuesses)) {
-            System.out.println("\nYOU WIN");
-            break;
-        }
-        System.out.println("Please enter your guess for the word");
-        if (keyboard.nextLine().equals(word)) {
-            System.out.println("\nYOU WIN");
-            break;
-        } else {
-            System.out.println("Incorrect");
+            if (printWordState(word, playerGuesses)) {
+                System.out.println("\nYOU WIN");
+                break;
+            }
+            System.out.println("Please enter your guess for the word");
+            if (keyboard.nextLine().equals(word)) {
+                System.out.println("\nYOU WIN");
+                break;
+            } else {
+                System.out.println("Incorrect");
+            }
         }
     }
 
