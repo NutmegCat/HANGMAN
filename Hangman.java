@@ -23,12 +23,10 @@ public class Hangman {
         
         List<Character> playerGuesses = new ArrayList<>();
         printWordState (word, playerGuesses);
-
-        System.out.println("Enter a character");
-        String letterGuesses = keyboard.nextLine();
-        playerGuesses.add(letterGuesses.charAt(0));
-
-        printWordState(word, playerGuesses);
+        
+        while (true) {
+            getPlayerGuess(keyboard, word, playerGuesses);
+        }
     }
 
     private static void printWordState (String word, List<Character> playerGuesses) {
@@ -40,5 +38,13 @@ public class Hangman {
             }
         }
         System.out.println();
+    }
+
+    private static void getPlayerGuess (Scanner keyboard, String word, List<Character> playerGuesses) {
+        System.out.println("Enter a character");
+        String letterGuesses = keyboard.nextLine();
+        playerGuesses.add(letterGuesses.charAt(0));
+
+        printWordState(word, playerGuesses);
     }
 }
