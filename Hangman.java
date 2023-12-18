@@ -25,8 +25,8 @@ public class Hangman {
         printWordState (word, playerGuesses);
 
         System.out.println("Enter a character");
-        String letterGuesss = keyboard.nextLine();
-        playerGuesses.add(letterGuesss.charAt(0));
+        String letterGuesses = keyboard.nextLine();
+        playerGuesses.add(letterGuesses.charAt(0));
 
         printWordState(word, playerGuesses);
     }
