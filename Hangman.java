@@ -22,9 +22,42 @@ public class Hangman {
 
         List<Character> playerGuesses = new ArrayList<>();
 
+        int wrongCount = 0;
         while (true) {
+
+
+            System.out.println(" -------");
+            System.out.println(" |     |");
+            if (wrongCount >= 1) {
+                System.out.println(" O");
+            }
+            if (wrongCount >= 2) {
+                System.out.print("\\ ");
+                if (wrongCount >= 3) {
+                    System.out.print("/");
+                } else {
+                    System.out.println("");
+                }
+            }
+            if (wrongCount >= 4) {
+                System.out.print(" |");
+            }
+            if (wrongCount >= 5) {
+                System.out.print("/ ");
+                if (wrongCount >= 6) {
+                    System.out.print("\\ ");
+                } else {
+                    System.out.println("");
+                }
+            }
+
+
+
             printWordState(word, playerGuesses);
-            getPlayerGuess(keyboard, word, playerGuesses);
+            if (!getPlayerGuess(keyboard, word, playerGuesses)) {
+                wrongCount++;
+            }
+
             if (printWordState(word, playerGuesses)) {
                 System.out.println("\nYOU WIN");
                 break;
@@ -54,9 +87,11 @@ public class Hangman {
         return (word.length() == correctCount);
     }
 
-    private static void getPlayerGuess(Scanner keyboard, String word, List<Character> playerGuesses) {
+    private static boolean getPlayerGuess(Scanner keyboard, String word, List<Character> playerGuesses) {
         System.out.println("Enter a character");
         String letterGuesses = keyboard.nextLine();
         playerGuesses.add(letterGuesses.charAt(0));
+
+        return word.contains(letterGuesses);
     }
 }
