@@ -26,6 +26,12 @@ public class Hangman {
         while (true) {
             getPlayerGuess(keyboard, word, playerGuesses);
             if (printWordState(word, playerGuesses)) {
+                System.out.println("\nYOU WIN");
+                break;
+            }
+            System.out.println("Please enter your guess for the word");
+            if (keyboard.nextLine().equals(word)) {
+                System.out.println("\nYOU WIN");
                 break;
             }
         }
