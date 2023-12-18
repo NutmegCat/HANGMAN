@@ -32,20 +32,20 @@ public class Hangman {
                 System.out.println(" O");
             }
             if (wrongCount >= 2) {
-                System.out.print("\\ ");
+                System.out.println("\\ ");
                 if (wrongCount >= 3) {
-                    System.out.print("/");
+                    System.out.println("/");
                 } else {
                     System.out.println("");
                 }
             }
             if (wrongCount >= 4) {
-                System.out.print(" |");
+                System.out.println(" |");
             }
             if (wrongCount >= 5) {
-                System.out.print("/ ");
+                System.out.println("/ ");
                 if (wrongCount >= 6) {
-                    System.out.print("\\ ");
+                    System.out.println("\\ ");
                 } else {
                     System.out.println("");
                 }
