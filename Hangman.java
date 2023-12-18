@@ -25,7 +25,6 @@ public class Hangman {
         int wrongCount = 0;
         while (true) {
 
-
             System.out.println(" -------");
             System.out.println(" |     |");
             if (wrongCount >= 1) {
@@ -50,8 +49,8 @@ public class Hangman {
                     System.out.println("");
                 }
             }
-
-
+            System.out.println();
+            System.out.println();
 
             printWordState(word, playerGuesses);
             if (!getPlayerGuess(keyboard, word, playerGuesses)) {
@@ -83,7 +82,7 @@ public class Hangman {
             }
         }
         System.out.println();
-        
+
         return (word.length() == correctCount);
     }
 
