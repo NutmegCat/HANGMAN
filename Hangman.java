@@ -25,6 +25,9 @@ public class Hangman {
 
         while (true) {
             getPlayerGuess(keyboard, word, playerGuesses);
+            if (printWordState(word, playerGuesses)) {
+                break;
+            }
         }
     }
 
@@ -47,7 +50,5 @@ public class Hangman {
         System.out.println("Enter a character");
         String letterGuesses = keyboard.nextLine();
         playerGuesses.add(letterGuesses.charAt(0));
-
-        printWordState(word, playerGuesses);
     }
 }
